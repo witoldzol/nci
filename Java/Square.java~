@@ -1,0 +1,14 @@
+Public class Square {
+
+    Public static void main(String args[]){
+
+	int side = 7;
+	int squareArea = side * side;
+
+	System.out.println(squareArea);
+
+
+    }
+
+
+}

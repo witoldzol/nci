@@ -1,0 +1,10 @@
+Linux commands
+__________________________________________________
+
+ls  // list
+man < ls > // manual about list
+ls -la // (more details with permisions etc)
+
+   -a // show all files (hidden as well!)
+   -l // show full listing (more details)
+   

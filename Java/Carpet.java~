@@ -1,0 +1,15 @@
+public class Carpet{
+
+    public static void main(String args[]){
+
+	double roomLength = 11.5;
+	double roomWidth = 10.2;
+
+	double pricePerMeter = 13;
+
+	double totalPrice = roomLenght * roomWidth * pricePerMeter;
+	
+
+    }
+
+}

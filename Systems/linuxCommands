@@ -1,0 +1,84 @@
+Linux commands
+__________________________________________________
+
+ls  // list
+
+man < ls > // manual about list
+
+ls -la // (more details with permisions etc)
+
+   -a // show all files (hidden as well!)
+   -l // show full listing (more details)
+
+history   // shows all used commands
+   !<number>  // replays that command
+   ex/ !34
+
+~ //home dir
+
+cd ~  // will take you back to home dir
+
+ls ~  // do listing of home dir
+
+pwd  //print working directory (where am i now?!)
+
+mkdir  // create directory
+
+touch // same as >, creates 0 size file
+
+cp <filename> <newfilename> // copy file with newname
+
+rm <filename> // delete file
+   -r // delete recursively, ie you can delete folders
+
+apt-get install <pkgname>  // install package //
+
+cat <filename> // view file without opening it
+
+head  // view top of the file without opening it
+      head -3 // show top 3 lines (10 is default?)
+
+tail // view end of the file without opening it
+     tail -4 // show last 4 lines
+
+bash <nameofFile> // run script from the file  // AMAZING!
+
+**************************************************
+netstat  // show network characteristics // shows tcp/ip connections, whos connected etc
+**************************************************
+
+ps   // show processes (only in your shell)!!
+     -ef  // shows all processes (in full environment)
+
+wc script // shows number of line,words,characters in the file // like in an array
+   -l  // show only number of lines in the file
+   -c  // show characters
+   -w // show words
+
+pipes |
+      ps | wc -l // show how many lines of processes
+      ps -ef | wc -c // show all characters in ps output (lol?!)
+
+grep <searched> <filename>  // search for a given word
+     grep ls script.md
+
+----------
+test:
+how many sshd processes are running now?
+
+    ps -ef | grep sshd | wc -l		//when we run this command, process itself is created to execute it, and it gets picked up in results as well
+----------   	       	    		// to elimnate it we need to flip the logic
+    ps -ef | grep sshd | grep -v color | wc -l
+
+    -v       	       	      	 // excludes items from search results
+
+******************************
+variables in scripts:
+	  eg. CMD (all capital)
+	  call it using $ sign
+	  $CMD
+
+you can declare whole lines as variables (and we can use variables inside variables)
+    	val=$(ps -ef | grep $CMD | wc -l)
+
+******************************
