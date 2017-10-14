@@ -1,0 +1,218 @@
+---------------------------------	TCP / IP ------------------------------
+
+5 Layers:
+  Application	//	
+  Transport	//	TCP	(cares about lost data, resends data, can requests packets)
+    		//		eg. does 'handshaking' between your browser and server
+  Network	//	IP	(just keeps sending packets) (doesn't replay packets)
+  Data link	//	
+  Physical	//
+
+--------------------
+
+Ethernet address (MAC - Media Access Control
+
+Ethernet checksum : to verify if the data has been corrupted along the way.
+If it was, packet gets dropped
+
+ETHERNET FRAME:
+//Destination address // Source address // PDU // Data + padding // CRC(checksum) //
+min 64 bytes
+max 1518 bytes
+
+******************************
+Broadcast:
+sent by a machine looking for a specific IP address
+every machine in the netweork listens to it, and the with matching ethernet
+address will respond to it. That's how machines identify target of their message.
+
+--------------------
+ARP
+- used only for local networks / lans
+- not secure // see ARP poisonoing //
+- creates relationship between layer 2 & 3
+
+
+
+Command:
+arp -a
+    // level 3 (ip)
+    // gives you an ARP cache where are stored arp's // gets STALE quickly (5 min or so)
+    	 
+
+gives list of relationships between internet addressess and physical addresses;
+ARP are stored temporarily so that the machine doesn't have to generate it all over again when broadcasting.
+
+hub: creates relationship between layer 1 and 2. Looks at ports.
+
+Full Duplex cables: you can send and receive at the same time;
+
+**** ********* IGNORE SLIDES 33+ L2 / ETHERNET *********
+
+---------------------------------------- CABLES --------------------
+
+Guided cables
+-wired
+	-twisted-pair cable
+		      // cheapest and most popular
+		      //its twisted to lower the degradation of packets over time/space
+		      //STP - shielded twisted pair (shielding reduces noise from outside)
+		      
+	-coaxial cable
+
+	-fiber-optic cable
+
+Ungaided cables
+	-wireless
+
+----- ******************** EXAM QUESTION: EXPLAIN TYPES OF SIGNAL DEGREDATION
+
+You need to be able to explaine those:
+
+- Attenuation
+
+- Crosstalk
+
+- Noise
+
+
+----------------------------------------
+
+1 = 5v
+0 = 0v
+
+Signal wire Tx = 5V + noise volt
+Ground wire Rx = 0V + noise volt
+
+Reciever substracts Rx from Tx, this way noise is cancelled out at the end
+	 //called as DIFFERENTIAL SIGNALING //
+	 //thats why wires are twisted, so their path is identical and they
+	 will be subject to the same noise, so it can be eliminated.
+	 if the wires were straight they would have differnt paths, hence they would
+	 collect different noise, and it ouwld be impossible to cancel out the noise
+	 at the end //
+
+UTP: unshielded twisted pair
+STP: shielded twisted pair // actual shielding is minimal and cost increase is
+     	      	      	   // minimal
+
+
+//windows
+
+COMMAND:
+----------
+netstat -na
+
+:you will get local ips and foreign addresses
+    each ip will have a POET number
+    	 DIRECTION of connections (from high PORT numbers to low POrt nb)
+    	 when we connect to server, that server has a well known port number
+	 our port number is a generic number, whereas server (facebook) will have a
+	 -	 well known port number
+
+
+COMMAND:
+----------
+ipconfig/all
+
+	will tell you:
+	
+	    - ethernet address
+	      	       (physical address: 00-50-56-92-1D-EC)
+	      	      (( layer 2 address - have to be unique or you will have a conflict))
+	    - IPv4 address:
+	      	   that's our ip address
+
+	    - TCP / UDP address (no such thing on a card!)
+	    	      (they are allocated to connections)
+
+	    - Default Gateway
+
+
+-------------------- WEEK 4 ----------
+
+******************************  POTENTIAL EXAM QUESTION ********************
+
+----COAXIAL CALBE (guided media)
+	high bandwidth cable (can carry 10k voice signals)
+	they have existed for a long time for TV
+	construction: 2 electrical conductors (inner & outer - outer/ shield is the ground)
+		      btw 2 conductors there is plastic which insulates them from each other
+		      outside there is plastic cover
+
+------------------------------ dont learn categories of coaxial cable ----------
+advantages:
+	-cheap to install compared to optic fiber
+	-wide bandwidth than twisted pair
+	-suitable for TV etc
+	-conforms to standards
+
+disadvantages:
+	-limited distance
+	-bulty and difficult to install
+	-limited number of connections
+	-terminators/connectors have to be done properly (vampire connects etc)
+	-optical fibre is more cost-effective over long links
+	-UTP is more cost effective on short distances
+
+
+
+----FIBRE OPTIC CABLE (guided media)
+	  near unlimited bandwidth
+	  construction: core (glass) covered in cladding ( glass ) covered in plastic jacket
+	  light refrects (bounces off) from ouside glass while running through inner core
+	  dont learn: bending of light rays (won't come up on exam)
+	  multimode fibre: cheaper version, signal gets distorted way more over long lengths
+	  single mode: expensive
+	  dont learn fiber types / step index ...
+
+advantages: immune to electromagnetic interferences
+	    vary big bandwidth / capacity
+	    
+
+disadvantages: costly
+	       difficult to repair
+	       fragile
+	       difficult to join fibres in the field
+
+
+----- TCP / IP review
+
+Transport layer
+Network layer
+	duties:
+		
+		:Internetworking
+		:Packetizing
+		:Addressing
+		:Routing
+		:Fragmenting
+		
+-multicasting
+-routing protocols
+-address resolution
+
+---------- Peer to Peer
+	   from the same level / layer to the same layer (at the same level)
+
+
+---Internet layer:
+	    -IP protocol is used
+	    -IP is unreliable and connection-less protocol
+	    	:connection-oriented (telephone for example - you get dedicated channel)
+		:ip is not like phone service, they don't care how data is structured /
+		organized / in what order it reaches target
+	    -IP has no error checking / tracking
+	    -sends data in packets called datagrams
+	    -datagrams may travel over different routs (can arrive out of order/ get lost)
+	    -no facility for re-ordering the datagrams upon arrival
+	    
+
+datagram ( packet )
+no ipv4 datagram header description
+
+******************** EXAM:
+
+---IPv4 Addressing
+	fourth version of ip addressing scheme
+	(there is a finate nb of possible combinations)

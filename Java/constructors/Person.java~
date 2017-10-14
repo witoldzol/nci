@@ -1,0 +1,9 @@
+public class Person{
+
+    //instantiable variables
+    private String name;
+    private int age;
+    private boolean lovesToCode;
+
+    
+}

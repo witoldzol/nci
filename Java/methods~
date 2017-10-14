@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+//classes start with capital letter ???
+Scanner();
+nextInt();
+<var> = new Scanner(System.in).nextInt();
+
+instance variables - within class, but outside of methods!
+	 //help us descripbe class
+	 
+
+    method header : eg. public static void main(<args>) // all modifiers,args, and name    
+
+    method signature: just method NAME and parameters // main(args)
+
+    

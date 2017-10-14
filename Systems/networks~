@@ -1,0 +1,95 @@
+---------------------------------	TCP / IP ------------------------------
+
+5 Layers:
+  Application	//	
+  Transport	//	TCP	(cares about lost data, resends data, can requests packets)
+    		//		eg. does 'handshaking' between your browser and server
+  Network	//	IP	(just keeps sending packets) (doesn't replay packets)
+  Data link	//	
+  Physical	//
+
+--------------------
+
+Ethernet address (MAC - Media Access Control
+
+Ethernet checksum : to verify if the data has been corrupted along the way.
+If it was, packet gets dropped
+
+ETHERNET FRAME:
+//Destination address // Source address // PDU // Data + padding // CRC(checksum) //
+min 64 bytes
+max 1518 bytes
+
+******************************
+Broadcast:
+sent by a machine looking for a specific IP address
+every machine in the netweork listens to it, and the with matching ethernet
+address will respond to it. That's how machines identify target of their message.
+
+--------------------
+ARP
+- used only for local networks / lans
+- not secure // see ARP poisonoing //
+- creates relationship between layer 2 & 3
+
+
+
+Command:
+arp -a   // gives you an ARP cache where are stored arp's // gets STALE quickly (5 min or so)
+    	 
+
+gives list of relationships between internet addressess and physical addresses;
+ARP are stored temporarily so that the machine doesn't have to generate it all over again when broadcasting.
+
+hub: creates relationship between layer 1 and 2. Looks at ports.
+
+Full Duplex cables: you can send and receive at the same time;
+
+**** ********* IGNORE SLIDES 33+ L2 / ETHERNET *********
+
+---------------------------------------- CABLES --------------------
+
+Guided cables
+-wired
+	-twisted-pair cable
+		      // cheapest and most popular
+		      //its twisted to lower the degradation of packets over time/space
+		      //STP - shielded twisted pair (shielding reduces noise from outside)
+		      
+	-coaxial cable
+
+	-fiber-optic cable
+
+Ungaided cables
+	-wireless
+
+----- ******************** EXAM QUESTION: EXPLAIN TYPES OF SIGNAL DEGREDATION
+
+You need to be able to explaine those:
+
+- Attenuation
+
+- Crosstalk
+
+- Noise
+
+
+----------------------------------------
+
+1 = 5v
+0 = 0v
+
+Signal wire Tx = 5V + noise volt
+Ground wire Rx = 0V + noise volt
+
+Reciever substracts Rx from Tx, this way noise is cancelled out at the end
+	 //called as DIFFERENTIAL SIGNALING //
+	 //thats why wires are twisted, so their path is identical and they
+	 will be subject to the same noise, so it can be eliminated.
+	 if the wires were straight they would have differnt paths, hence they would
+	 collect different noise, and it ouwld be impossible to cancel out the noise
+	 at the end //
+
+UTP: unshielded twisted pair
+STP: shielded twisted pair // actual shielding is minimal and cost increase is
+     	      	      	   // minimal

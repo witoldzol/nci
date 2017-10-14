@@ -1,0 +1,9 @@
+public class Operations{
+
+    public void add(double x, double y){
+
+	int result = x + y;
+	System.out.println(x + 'plus' + y + 'equals' result);
+
+    }
+}

@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+//classes start with capital letter ???
+Scanner();
+nextInt();
+<var> = new Scanner(System.in).nextInt();
+
+instance variables - within class, but outside of methods!
+	 //help us descripbe class
+	 
+
+    method header : eg. public static void main(<args>) // all modifiers,args, and name    
+
+    method signature: just method NAME and parameters // main(args)
+
+    
+instantiable classes: classes that we reuse/ invoke
+
+variables inside methods have no modifiers (public / private) !!!!
+
+
+********** KEEP DATA PRIVATE ! Use setters and getter to set it and retrieve it
+SETTERS
+	
+	
+GETTERS

@@ -1,0 +1,111 @@
+Object theory
+
+       Use case Diagram:
+       
+       -actors: anything outside system that interacts with the system
+       -system  boundary
+       - use cases // (verbs - actions)
+       -no concept of time 
+
+USE CASE: -sequence of transations performed by the system
+    	  -represents one way to use the system by an actor
+    	  -initiated by the actor
+	  -describes the dialogue between an Actor and the system
+	  -don't have to interact with the initializing agent
+	  -LOG IN is not a USE CASE in itself // you don't log in jsut for the sake of itself//
+	  -provides meaningful, measurable VALUE to an actor
+
+Actor is not an USER !
+      Actor is a role, not a particular person
+      Particular person can be a number of actors and vice versa.
+
+      Actor categories:
+      -primary // person for whom the system is designed for, atm user (human)
+      -secondary // people who perform secondary functions in system, for example, sys admin (human)
+      -external hardware (non human) eg. printer
+      -other systems that interact with our system
+
+******************************
+
+LEARN USE CASE TEMPLATE to describe use case!
+      -preconditions ! (have i crashed? have i crashed? ..no no yes -> deploy airbags)
+      -postconditions
+      
+******************************
+
+When describing use case actions, use ACTIVE VERBS
+     eg. present actor with a menu
+     	 give actor money
+
+
+FLOW OF EVENTS:
+     	-within use cases
+
+
+------------------------------
+Advanced use case
+
+***Inheritance-Associations Common Roles
+	-Actor Generalization
+	-<<include>>
+	-<<exclude>>
+
+
+
+-------------------- WEEK 4 ----------
+
+CLASS DIAGRAMS:
+      describes objects(classes)
+      there is no sense of time in this diagram
+      we will concentrate on CONCEPTUAL perspective
+      we use NOUNS in this diagram to name concepts (use case used verbs)
+      made out of boxes:
+      	   -attributes that class has
+	   -methods (operations) that class has / can do
+
+
+Relationships(btw classes)
+	-have to have a NAME !!!
+	-0..1 to * (many) etc
+
+
+Generalization: (raltionship, no need to be named)
+
+	-"is a" relationship
+	-you abstract common attributes from min two classes and put them into 'super'
+	class
+	-arrow with a white head
+
+Whole / Part Aggregations (relationship, no need to name)
+
+      -"is one obj part of another whole obj?"
+      -full arrowhead
+      
+Composition (??)
+
+
+-------------------- PROJECT --------------------
+
+Describe individually ONE use case
+
+Interim: up to point 5 !!!
+
+One hardcopy and one online copy via moodle
+
+dont use:
+(no dependency relationships!)
+(no association class)
+(naming objects) dont bother with underlining and colons
+
+
+---------------------------------------- PROJECT MANAGEMENT CLASS ----------
+
+Project is temporary
+One time effort (as opposed to Operations -ongoing)
+
+Project sponsor: provides direction and funds.
+
+Triple constraints:
+       -Scope
+       -Time
+       -Cost

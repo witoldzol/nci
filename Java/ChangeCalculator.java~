@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class ChangeCalculator {
+
+    public static void main(String args[]){
+
+	int totalPrice, amtReceived, change;
+
+	System.out.println("Please type the total price of products");
+
+	totalPrice = new Scanner(System.in).nextInt();
+
+	System.out.println("Please insert how much customer has given us");
+
+	amtReceived = new Scanner(System.in).nextInt();
+
+	
+	
+	
+    }
+}

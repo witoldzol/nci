@@ -1,0 +1,21 @@
+public class PowerOfTwo{
+
+    private double num, result;
+    
+    public void Power(){
+
+	result = num * num;
+
+    }
+
+
+    public setNum(){
+
+	
+    }
+
+    public getRes(){
+
+	
+    }
+}

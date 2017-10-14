@@ -1,0 +1,13 @@
+import java.util.Scanner
+
+public class InteractiveCarpet {
+
+    public static void main(String args[]){
+
+	System.out.println("Please specify length of carpet");
+	double length = new Scanner(System.in);
+
+	Syste.out.println("Please specify width of carpet");
+	double width = new Scanner(System.in);
+    }
+}
