@@ -216,3 +216,97 @@ no ipv4 datagram header description
 ---IPv4 Addressing
 	fourth version of ip addressing scheme
 	(there is a finate nb of possible combinations)
+
+Information in the IP address:
+	    class:
+		-based on the first digits
+		-there are 5 classes: A,B,C,D,E
+		-convert first byte into bits, and determine class (0=A,10 =B,11=C)
+
+0-127		A: - governments / huge organisations
+128-191		B: - medium to large companies
+		   Both classes are often wasteful (assigned to orgs that don't use thime)
+192-223		C: - small organizations / companies
+224-239		D: - for multicasting
+240-255		E: - special purpose
+
+Class A: netid - 1st byte, host id -3bytes
+Class B: netid - 1st & 2nd byte; host id: 3rd & 4th
+Class C: netid - 1st/2nd & 3rd byte; host id: 4th;
+Class D: group address only
+Class E: undefined
+
+So for example:
+
+ipconfig/all
+ipv4: 192.168.144.93
+      class: C
+      netid: 192.168.144
+      host id: = 93      
+      network address: = 192.168.144.0
+
+********************   NETWORK ID IS NOT THE SAME AS NETWORK ADDRESS ********************
+
+---Direct broadcast address
+       example:
+	net id: 192.168.144
+	net address: 192.168.144.0
+	direct broadcast: 192.168.144.255
+
+Two addresses are reserved by default  x.x.x.0 and x.x.x.255
+
+---Limited Broadcast:
+	   -255.255.255.255
+	   -used only locally within network
+
+
+----Excercise:
+	IP address: 183.121.56.4
+
+class:	B
+netid:	183.121
+hostid: 56.4
+network address: 183.121.0.0
+direct broadcast address: 183.121.255.255
+limited broadcast address: 255.255.255.255
+default subnet mask for class B = 255.255.0.0
+
+
+
+----------     SUBNETWORKS
+
+example:
+4.34.23.4
+class A
+net id: 4
+hostid 34.23.4
+network address: 4.0.0.0
+subnet mask: 255.0.0.0
+
+no. 3 bytes = 2^24 hosts  (16 mil)
+
+----------------------- Excercise:
+break up the above network into 256 buildings:
+
+1) come up with a subnet mask : 255.255.0.0
+
+2)
+	building 1: 4.0.0.0
+	building 2: 4.1.0.0
+	buiiding 3: 4.2.0.0
+	building 4: 4.3.0.0
+	building 256: 4.255.0.0
+
+	(so effectively we broken up class A network into 256 class B networks)
+
+----------------------- EXAM EXCERCISE:
+
+172.20.2.38
+
+class B:
+net address 172.20.0.0
+direct broadcast 172.20.255.255
+default subnet mask: 255.255.0.0
+
+      
+      

@@ -1,0 +1,19 @@
+-------------------- JOINS --------------------
+
+Joins: between tables
+Left table: first table to be matched in a query
+
+INNER JOIN:
+      returns all rows if at least one match in both tables
+
+LEFT JOIN:
+     returns all rows from the left table and matched rows from right table
+
+RIGHT JOIN:
+      same as left
+
+FULL JOIN:
+     returns all rows from tables
+
+UNION : use to join statements (select within select)
+
