@@ -43,6 +43,7 @@ FLOW OF EVENTS:
 
 
 ------------------------------
+
 Advanced use case
 
 ***Inheritance-Associations Common Roles
@@ -134,4 +135,83 @@ Project Team:
 
 -Gantt project planner!
 -Critical patch calculation
+
+
+--------------------********** REVIEW ****--------------------
+
+Functional requirements:
+	   -what system needs to be able to do
+
+Non functional requirements:
+    	   -constraints
+	   -(it has to do a / b in this or that limit of time)
+	   -limitations need to be measurable (log in below 2seconds)
+
+Function categories:
+	 evident (system works , does obvious stuff)
+	 hidden (eg. system is storing data on the hdd)
+	 frill (nice-to-have things, but not necessary)
+
+
+
+------------------------------Example for POST:  (practice run)
+
+	1)Functional requirements:
+		     -buy items    // evident
+		     -return items // evident
+		     -calculate change	  // evident
+		     -handle credit & debit card payments  // evident
+		     -store data  // hidden
+		     -run analytics   //  frill
+	2)Non-functional requirements:
+			 -calculate change below 0.5s   // evident 
+			 -run analytics report under 3s	// evident
+			 -process card payment under 10s   //evident
+        3)Actors:
+			-clerk
+			-stock system
+			-bank system
+	4)Use case diagram:
+			
+			 			 			 
+------------------------------Solution to POST :
+
+1) Functional requirements:
+   	      -record current sale // evident
+	      -calculate curent sale total including tax // evident
+	      -reduce inventory quantities on sale // evident
+	      -capture purchase info from a bar code or manual entry // evident
+	      -store datea  // hiddent
+
+2) Non functional requirements
+       	      -must work on Linux / Windows
+	      -must have easy interface
+
+3) Actors
+	      -	
+
+4) Use case diagrams
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  LOG IN IS NOT A USE CASE !!! ( DONT USE IT !!) ^^^^^^^^^^^^^^^^^^^^
+
+********** Class Diagrams Excercise:
+
+Conceptual class idagram for POST // Buy items use case //
+
+	   Classes:
+
+		1)scan item
+			-price
+			-code
+		2)user
+			-login
+			-password
+		3)sale transaction
+		       -total
+		       -serial number
+		4)system
+		5)
+
+      
 
