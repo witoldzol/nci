@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class CalculatorApp{
 
     public static void main(String args[]){
@@ -13,7 +15,7 @@ public class CalculatorApp{
 	SimpleCalculator calc;
 	calc = new SimpleCalculator();
 
-	calc.displayResult();
+
 
 	//normally we would use Scanner to get input
 	//we hardcode vals to save time
@@ -27,7 +29,7 @@ public class CalculatorApp{
        	calc.displayResult();
 	result = calc.getResult();
 
-	System.out.println(result);
+
     }
 
 }

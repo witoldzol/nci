@@ -4,15 +4,86 @@
 
   <head>
     <title>Industrial pavements</title>
-    <link href="">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
 
     <h1>Welcome to the world of industrial pavements</h1>
 
-    <div id="image1"><img src="img/site.jpeg"></div>
-    
+	<table>
+		
+		<col id="col1">
+		<col id="col2">
+		<col id="col3">
+
+		<tr>
+			<th>First</th>
+			<th>Second</th>
+			<th>Thrid</th>
+			<th>Fourth</th>
+		</tr>
+		<tr>
+			<td>1</td> 
+			<td>2</td> 
+			<td>3</td> 
+			<td>4</td> 
+		</tr>
+		<tr>
+			<td colspan="2">3</td> 
+			<td colspan="2">4</td> 
+		</tr>
+		<tr>
+			<td rowspan="2">1</td> 
+			<td rowspan="2">2</td> 
+			<td>3</td> 
+			<td>4</td> 
+		</tr>
+		<tr>
+			<td>1</td> 
+			<td>2</td> 
+		</tr>
+	</table>
+
+	<form>
+		
+		<label>Please insert your password</label><br>
+		<input type="text" name="password" value="hello world" size="50"><br>
+		<input type="radio" name="on" value="on"><input type="radio" name="off" value="off"><br>
+		<input type="checkbox" name="" value="omfg"><br>
+		<input type="submit" name="">
+		<input type="reset" name="">
+		<input type="button" name="" onclick="for(i=0; i<10; ++i){alert('AMERICA IS GETTING GREATER ' + i )}" value="click to MAKE AMERICA GREAT AGAIN!">
+	</form>
+
+	<FORM>
+		<input type="radio" name="test" value="1">
+		<input type="radio" name="test" value="2">
+		<input type="radio" name="test" value="3">
+		<input type="radio" name="test" value="4">
+	</FORM>
+  
+
+	<select>
+		
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+
+
+	</select>
+
+
+	<form action="MAILTO:blue3656@gmail.com" method="post" enctype="text/plain">
+
+		<label>Name</label>
+		<input type="text" name="name">
+		<input type="submit" name="Send">
+
+	</form>
+
   </body>
   
+
 </html>
