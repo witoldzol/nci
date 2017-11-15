@@ -30,14 +30,15 @@ public class LottoApp{
 		//vars
 		String[] userInput;
 		int[] intArray;
-		ArrayList<Integer> test = new ArrayList<Integer>();
+		boolean test;
 		//scanner
 		Scanner scan = new Scanner(System.in);
 		System.out.println("please pick six numbers, from 1 to 40");
 
+
 		//filter user input and remove digits
 		userInput = removeNonDigits(scan.nextLine());
-
+		
 		if(userInput.length < 6){
 			System.out.println("You didn't pick enough numbers, try again");
 			queryForNumbers();
@@ -45,18 +46,17 @@ public class LottoApp{
 			System.out.println("You picked too many numbers, try again");
 			queryForNumbers();
 		}
-
 		//tranform from String to int array
 		intArray = stringToIntegerArray(userInput);
 
 		//test if user didn't enter invalid numbers outside permitted range
 		test = testNumbers(intArray);
 
-		//rerun input if numbers entered were incorrect
-		if(test.size() > 0){
-			System.out.println("You have selected values out of range. Please pick numbers between 1 and 40");
+		if(!test){
+			System.out.println("You selected number(s) outside of valid range. Try again");
 			queryForNumbers();
 		}
+
 		return userInput;
 	}
 
@@ -82,16 +82,15 @@ public class LottoApp{
 		for(int i = 0; i<arr.length; i++){
 			arr[i] = arr[i].trim();
 		}
-		//lets count how many actual digits there are in array
-
-	    for(int i = 0; i<arr.length; i++){
-		    if(!arr[i].isEmpty()) {
+		//count how many actual digits there are in array
+	    for (String ele : arr) {
+		    if (!ele.isEmpty()) {
 			    counter++;
 		    }
 	    }
 
-		//declare array now, once we know how many digits are in the string
-	    //using array list length
+		//now that we know how many digits are in the string
+	    //we can declare array for actual numbers
 	    String [] filteredArr = new String[counter];
 
 	    //loop through each char and test if it's a digit
@@ -101,6 +100,7 @@ public class LottoApp{
 				secondCounter++;
 			}
 		}
+
 
 		return filteredArr;
     }
@@ -116,22 +116,25 @@ public class LottoApp{
 	    return arr;
 	}
 
-    //method for testing numbers if they are correct
-    public static ArrayList<Integer> testNumbers(int[] x){
-
-		ArrayList al = new ArrayList();
+    //method for testing numbers if they are within range
+    public static boolean testNumbers(int[] x){
 
 		for(int i=0;i<x.length;i++){
 
-			//if any value is out of range, add it to test al
+			//if any value is out of range
 			if( x[i] > 40 || x[i] == 0 ){
 
-				al.add(x[i]);
+				return false;
 			}
 		}
-		return al;
+		return true;
     }
+	public static boolean duplicateCheck(int [] x){
 
+    	boolean y = true;
+
+		return y;
+	}
      /*
     //method for inserting digits into array
     public static int[][] insertInArray(int x, int[][] y, String userInput){
