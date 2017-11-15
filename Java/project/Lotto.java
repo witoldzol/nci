@@ -1,7 +1,11 @@
+import java.util.Random;
+
 public class Lotto{
 
+	//VARIABLES
+	private int matched, prize, totalPrize;
     //arrays
-    private int[] secretNumbers = new int[6];
+    private int[] lottoNumbers = new int[6];
     private int[] firstSet = new int[6];
     private int[] secondSet = new int[6];
     private int[] thridSet = new int[6];
@@ -10,16 +14,17 @@ public class Lotto{
     final int THREE = 9;
     final int FOUR = 54;
     final int FIVE = 1000;
-    final Strin SIX = "Won the lottery";
-    //vars
-    private int matched, prize, totalPrize;
+    final String SIX = "Won the lottery";
+
+
     //random generator obj
     Random rng = new Random();
 	
     //generate random numbers array
     public void generateLotto(){
-	for(int i = 0; i<6;i++){
-	lottoNumbers[i] = rng.nextint(40));
-        }
-    }
+
+		for(int i = 0; i<6;i++){
+		lottoNumbers[i] = rng.nextInt(40);
+	        }
+	    }
 }
