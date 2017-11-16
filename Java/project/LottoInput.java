@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 public class LottoInput{
@@ -7,6 +6,11 @@ public class LottoInput{
 	private String lottoNumbers;
 	private int inputHowManyGames;
 	private int howManyLottoNumbersProvided;
+
+	//arrays
+	private int[] firstSet;
+	private int[] secondSet;
+	private int[] thirdSet;
 
 	//Objects
 	Scanner scan = new Scanner(System.in);
@@ -23,12 +27,21 @@ public class LottoInput{
 	public int getHowManyLottoNumbersProvided(){
 		return howManyLottoNumbersProvided;
 	}
-
+	public int[] getFirstSet(){
+		return firstSet;
+	}
+	public int[] getSecondSet(){
+		return secondSet;
+	}
+	public int[] getThirdSet(){
+		return thirdSet;
+	}
 	//METHODS
 	public void startGame(){
 
 		System.out.println("Hi, welcome to LOTTO GAME. How many times you would like to play? (1-3)");
 
+		//loop until user provides correct input
 		while(true) {
 
 			try {
@@ -45,7 +58,7 @@ public class LottoInput{
 
 			} catch (Exception e) {
 
-				System.out.println("Ooops, we have an error:\n" + e + "\nTry again");
+				System.out.println("Ooops, we have encountered an error:\n" + e + "\nDon't be shy, try again");
 
 			}
 		}
@@ -61,7 +74,7 @@ public class LottoInput{
 				Scanner scan = new Scanner(System.in);
 
 				lottoNumbers = scan.nextLine();
-
+				//transfer input to int array
 				int[] lottoNumbersArray = convertStringToArray(lottoNumbers);
 
 				if(testNumbers(lottoNumbersArray)){
@@ -78,6 +91,7 @@ public class LottoInput{
 		}
 
 	}
+	//INTERNAL METHODS
 	private int[] convertStringToArray(String inputString){
 
 		int counter = 0;
@@ -108,7 +122,7 @@ public class LottoInput{
 		int len = inputArray.length;
 
 		System.out.println(Arrays.toString(inputArray));
-
+		//test length
 		if(len <6){
 			System.out.println("Not enough numbers provided");
 			return false;
@@ -116,16 +130,18 @@ public class LottoInput{
 			System.out.println("Too many numbers provided");
 			return false;
 		}
-
+		//test for duplicates
 		if(testForDuplicates(inputArray)){
 			System.out.println("Ahhh Geez, you cannot select same number more than once");
 			return false;
 		}
-
+		//test if numbers are valid
 		if(testForValidNumbers(inputArray)){
 			System.out.println("Oh dear, you selected number(s) outside of valid range.\nPick numbers between 1 and 40.");
 			return false;
 		}
+		//after verifying numbers, we can save them
+		saveUserLottoNumbers(inputArray);
 		return true;
 	}
 
@@ -157,5 +173,19 @@ public class LottoInput{
 			}
 		}
 		return false;
+	}
+	private void saveUserLottoNumbers(int[] inputArray){
+
+		if(howManyLottoNumbersProvided<3){
+			howManyLottoNumbersProvided++;
+
+			if(howManyLottoNumbersProvided == 1){
+				firstSet = inputArray;
+			} else if(howManyLottoNumbersProvided == 2){
+				secondSet = inputArray;
+			} else {
+				thirdSet = inputArray;
+			}
+		}
 	}
 }

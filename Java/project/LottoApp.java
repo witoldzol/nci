@@ -14,6 +14,7 @@ public class LottoApp {
 
 		numberOfGames = inputObj.getInputHowManyGames();
 
+		//loop until we get all the required lotto numbers
 		while(true) {
 
 			inputObj.askForNumbers();
@@ -22,5 +23,6 @@ public class LottoApp {
 				break;
 			}
 		}
+		System.out.println(inputObj.getFirstSet().toString()+"\n"+inputObj.getSecondSet().toString()+"\n"+inputObj.getThirdSet().toString());
 	}
 }
