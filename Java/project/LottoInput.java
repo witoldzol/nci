@@ -39,7 +39,7 @@ public class LottoInput{
 	//METHODS
 	public void startGame(){
 
-		System.out.println("Hi, welcome to LOTTO GAME. How many times you would like to play? (1-3)");
+		System.out.println("Hi, welcome to LOTTO GAME. How many sets of numbers would you like to choose? (1-3)");
 
 		//loop until user provides correct input
 		while(true) {
@@ -177,6 +177,7 @@ public class LottoInput{
 	private void saveUserLottoNumbers(int[] inputArray){
 
 		if(howManyLottoNumbersProvided<3){
+
 			howManyLottoNumbersProvided++;
 
 			if(howManyLottoNumbersProvided == 1){

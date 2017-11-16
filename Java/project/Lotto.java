@@ -1,30 +1,128 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class Lotto{
+	//CONSTRUCTOR
+	public Lotto(int[] firstSet, int[] secondSet, int[] thirdSet, int howManySeries){
+
+		this.firstSet = firstSet;
+		this.secondSet = secondSet;
+		this.thirdSet = thirdSet;
+		this.howManySeries = howManySeries;
+	}
 
 	//VARIABLES
-	private int matched, prize, totalPrize;
+	private int totalPrize, howManySeries;
+	private boolean omgItActuallyHappened = false;
     //arrays
     private int[] lottoNumbers = new int[6];
-    private int[] firstSet = new int[6];
-    private int[] secondSet = new int[6];
-    private int[] thridSet = new int[6];
-    private int[] results = new int[6];
+    private int[] firstSet;
+    private int[] secondSet;
+    private int[] thirdSet;
+    private int[] results = new int[3];
+
+    //private ArrayList<int> history;
     //constants
     final int THREE = 9;
     final int FOUR = 54;
     final int FIVE = 1000;
-    final String SIX = "Won the lottery";
+    final String SIX = "OMG,you actually won the lottery!!!!!!!!!!!!!";
 
 
-    //random generator obj
-    Random rng = new Random();
+    //METHODS
 	
     //generate random numbers array
     public void generateLotto(){
 
+	    Random rng = new Random();
+
 		for(int i = 0; i<6;i++){
-		lottoNumbers[i] = rng.nextInt(40);
-	        }
+		//generate random number from 0-39 plus 1
+		lottoNumbers[i] = rng.nextInt(39) + 1;
+		}
+	    System.out.println("Lotto numbers are : " + Arrays.toString(lottoNumbers));
+    }
+
+    public void getLottoResults(){
+
+    	if(howManySeries > 0){
+    		int matched =0;
+    		for(int i = 0; i<6; i++){
+
+    			for(int j = 0; j<6; j++){
+
+    				if(firstSet[i] == lottoNumbers[j]){
+    					matched++;
+				    }
+			    }
+		    }
+		    results[0] = matched;
+		    calculateWinnings(matched);
+		    System.out.println("You matched "+matched+" number(s) in first series");
 	    }
+
+	    if(howManySeries > 1){
+		    int matched =0;
+		    for(int i = 0; i<6; i++){
+
+			    for(int j = 0; j<6; j++){
+
+				    if(secondSet[i] == lottoNumbers[j]){
+					    matched++;
+				    }
+			    }
+		    }
+		    results[1] = matched;
+		    calculateWinnings(matched);
+		    System.out.println("You matched "+matched+" number(s) in second series");
+	    }
+
+	    if(howManySeries == 3){
+		    int matched =0;
+		    for(int i = 0; i<6; i++){
+
+			    for(int j = 0; j<6; j++){
+
+				    if(thirdSet[i] ==lottoNumbers[j]){
+					    matched++;
+				    }
+			    }
+		    }
+		    results[2] = matched;
+
+		    calculateWinnings(matched);
+		    System.out.println("You matched "+matched+" number(s) in third series");
+
+	    }
+	    //print out total winnings
+	    if(omgItActuallyHappened){
+		    System.out.println(SIX);
+	    } else {
+		    System.out.println("You won in total: $" + totalPrize);
+	    }
+
+    }
+    public void calculateWinnings(int matched){
+
+    	switch (matched){
+		    case 4:
+		    	totalPrize += FOUR;
+		    	break;
+		    case 5:
+		    	totalPrize += FIVE;
+		    	break;
+		    case 6:
+		    	omgItActuallyHappened = true;
+			    totalPrize = 100000000;
+		    	break;
+		    default:
+		    	totalPrize = 0;
+
+	    }
+
+    }
+
+
+
 }
