@@ -1,21 +1,31 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LottoApp {
 
 	public static void main(String[] args) {
 
+		ArrayList<Integer> resultHistory = new ArrayList<Integer>();
+		int[] results;
+
 		while(true){
 
-			Process obj = new Process();
-			obj.game();
+			Process process = new Process();
+			results = process.game();
+			//save results
+			process.saveResults(results,resultHistory);
+
 			if(!playAgain()){
+				printHistory(resultHistory);
 				break;
 			}
-			//TODO
-			//printResults();
+
 		}
 
 	}
+
+	//method that asks user to play again
+	//can break loop
 	private static boolean playAgain(){
 
 		Scanner scan = new Scanner(System.in);
@@ -24,26 +34,69 @@ public class LottoApp {
 
 		String answer = scan.next();
 
-		if( answer.equals("y") ){
+		if( answer.equals("y") || answer.equals("yes")){
 			System.out.println("you pressed yes");
 			return true;
 		} else{
-			System.out.println("Thank you for playing, see you next time!");
+			System.out.println("Thank you for playing, see you next time!\nHere are your results from all your games:\n");
 			return false;
-			//System.exit(0);
+
 		}
 
 	}
-	//TODO
-	private printResults(){
-		
+
+	private static void printHistory(ArrayList<Integer> list){
+		int len = list.size();
+		int total = 0;
+		int index = 1;
+		boolean wonLotto = false;
+
+		System.out.println("You have entered " + len + " line(s) in total:\n");
+
+		//loop over list and print out number of matches for each line
+		//since lists have no indexes, we track index manually
+		for( int ele : list){
+			System.out.println("\tYou guessed " + ele + " number(s) on line number " + index);
+			index++;
+			//check if user won lotto
+			if(ele == 6){
+				wonLotto = true;
+			}
+			//
+			total = calculateWinnings(total, ele);
+		}
+		if(wonLotto){
+			System.out.println("\nOMG,you actually won the lottery!!!!!!!!!!!!!\n");
+		}
+		System.out.println("\nYou have won in total $"+total);
 	}
+
+	private static int calculateWinnings(int total, int matched ){
+		final int THREE = 9;
+		final int FOUR = 54;
+		final int FIVE = 1000;
+
+		switch (matched){
+			case 4:
+				total += FOUR;
+				break;
+			case 5:
+				total += FIVE;
+				break;
+			default:
+				total = 0;
+		}
+		return total;
+	}
+
 }
+
+//class with actual game
 class Process{
 
-	public void game(){
+	public int[] game(){
 
-
+		int[] results;
 		//variables
 		int numberOfGames;
 		int numbersProvided;
@@ -78,9 +131,22 @@ class Process{
 		processObj.generateLotto();
 
 		//calculate results
-		processObj.getLottoResults();
+		processObj.calculateLottoResults();
 
-		//save results
+		results = processObj.getResults();
+		return results;
+	}
+
+	public void saveResults(int[] arr, ArrayList<Integer> list){
+		//loop through each element in array with results
+		for( int ele : arr){
+			//if they are not valid number add to list with results
+			if(ele < 7 ){
+
+				list.add(ele);
+			}
+
+		}
 
 	}
 

@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class LottoInput{
 
 	//Variables
@@ -18,9 +19,6 @@ public class LottoInput{
 	//setters
 
 	//getters
-	public String getLottoNumbers(){
-		return lottoNumbers;
-	}
 	public int getInputHowManyGames(){
 		return inputHowManyGames;
 	}
@@ -36,10 +34,13 @@ public class LottoInput{
 	public int[] getThirdSet(){
 		return thirdSet;
 	}
+
 	//METHODS
+
+
 	public void startGame(){
 
-		System.out.println("Hi, welcome to LOTTO GAME. How many sets of numbers would you like to choose? (1-3)");
+		System.out.println("Welcome to LOTTO GAME.\nHow many sets of numbers would you like to choose? (1-3)");
 
 		//loop until user provides correct input
 		while(true) {
@@ -50,7 +51,7 @@ public class LottoInput{
 				inputHowManyGames = scan.nextInt();
 
 				if(inputHowManyGames <=3 && inputHowManyGames >=1){
-					System.out.println("Thank you.\n\nYou have 1 in 3,838,380 chance of winning this lottery. GOOD LUCK!\n");
+					System.out.println("Thank you.\n\nYou have 1 in 3,838,380 chance of winning this lottery.\nGOOD LUCK!!!\n");
 					break;
 				}else{
 					System.out.println("Select value between 1 and 3. Try again");
@@ -64,6 +65,7 @@ public class LottoInput{
 		}
 
 	}
+
 	public void askForNumbers(){
 
 		System.out.println("Please enter 6 values between 1 and 40.");
@@ -121,7 +123,7 @@ public class LottoInput{
 
 		int len = inputArray.length;
 
-		System.out.println(Arrays.toString(inputArray));
+
 		//game length
 		if(len <6){
 			System.out.println("Not enough numbers provided");
@@ -165,6 +167,7 @@ public class LottoInput{
 		}
 		return false;
 	}
+
 	private boolean testForValidNumbers(int[] arr){
 
 		for(int ele : arr){
@@ -174,6 +177,7 @@ public class LottoInput{
 		}
 		return false;
 	}
+
 	private void saveUserLottoNumbers(int[] inputArray){
 
 		if(howManyLottoNumbersProvided<3){

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -20,7 +19,7 @@ public class Lotto{
     private int[] firstSet;
     private int[] secondSet;
     private int[] thirdSet;
-    private int[] results = new int[3];
+    private int[] results = {7,7,7};
 
     //private ArrayList<int> history;
     //constants
@@ -44,7 +43,7 @@ public class Lotto{
 	    System.out.println("Lotto numbers are : " + Arrays.toString(lottoNumbers));
     }
 
-    public void getLottoResults(){
+    public void calculateLottoResults(){
 
     	if(howManySeries > 0){
     		int matched =0;
@@ -58,8 +57,9 @@ public class Lotto{
 			    }
 		    }
 		    results[0] = matched;
+
 		    calculateWinnings(matched);
-		    System.out.println("You matched "+matched+" number(s) in first series");
+		    System.out.println("\tYou matched "+matched+" number(s) in first line");
 	    }
 
 	    if(howManySeries > 1){
@@ -75,7 +75,7 @@ public class Lotto{
 		    }
 		    results[1] = matched;
 		    calculateWinnings(matched);
-		    System.out.println("You matched "+matched+" number(s) in second series");
+		    System.out.println("\tYou matched "+matched+" number(s) in second line");
 	    }
 
 	    if(howManySeries == 3){
@@ -92,7 +92,7 @@ public class Lotto{
 		    results[2] = matched;
 
 		    calculateWinnings(matched);
-		    System.out.println("You matched "+matched+" number(s) in third series");
+		    System.out.println("\tYou matched "+matched+" number(s) in third line");
 
 	    }
 	    //print out total winnings
@@ -122,7 +122,10 @@ public class Lotto{
 	    }
 
     }
-
+    //return array with results
+	public int[] getResults(){
+    	return results;
+	}
 
 
 }
