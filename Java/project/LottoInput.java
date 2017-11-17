@@ -122,7 +122,7 @@ public class LottoInput{
 		int len = inputArray.length;
 
 		System.out.println(Arrays.toString(inputArray));
-		//test length
+		//game length
 		if(len <6){
 			System.out.println("Not enough numbers provided");
 			return false;
@@ -130,12 +130,12 @@ public class LottoInput{
 			System.out.println("Too many numbers provided");
 			return false;
 		}
-		//test for duplicates
+		//game for duplicates
 		if(testForDuplicates(inputArray)){
 			System.out.println("Ahhh Geez, you cannot select same number more than once");
 			return false;
 		}
-		//test if numbers are valid
+		//game if numbers are valid
 		if(testForValidNumbers(inputArray)){
 			System.out.println("Oh dear, you selected number(s) outside of valid range.\nPick numbers between 1 and 40.");
 			return false;

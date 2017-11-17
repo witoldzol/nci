@@ -1,9 +1,49 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LottoApp {
 
 	public static void main(String[] args) {
+
+		while(true){
+
+			Process obj = new Process();
+			obj.game();
+			if(!playAgain()){
+				break;
+			}
+			//TODO
+			//printResults();
+		}
+
+	}
+	private static boolean playAgain(){
+
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Would you like to play again? Type 'y' if you do");
+
+		String answer = scan.next();
+
+		if( answer.equals("y") ){
+			System.out.println("you pressed yes");
+			return true;
+		} else{
+			System.out.println("Thank you for playing, see you next time!");
+			return false;
+			//System.exit(0);
+		}
+
+	}
+	//TODO
+	private printResults(){
+		
+	}
+}
+class Process{
+
+	public void game(){
+
+
 		//variables
 		int numberOfGames;
 		int numbersProvided;
@@ -41,26 +81,6 @@ public class LottoApp {
 		processObj.getLottoResults();
 
 		//save results
-
-		//ask to play again
-		playAgain(args);
-
-	}
-	private static void playAgain(String[] args){
-
-		Scanner scan = new Scanner(System.in);
-
-		System.out.println("Would you like to play again? Type 'y' if you do");
-
-		String answer = scan.next();
-
-		if( answer.equals("y") ){
-			System.out.println("you pressed yes");
-			main(args);
-		} else{
-			System.out.println("Thank you for playing, see you next time!");
-			System.exit(0);
-		}
 
 	}
 
