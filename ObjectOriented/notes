@@ -241,3 +241,39 @@ Collaboration diagrams = communication diagrams (uml1 vs uml2)
 tube1763: youtube channel for rational rose
 
 
+*****************************************WEEK 10 ***************************************
+(design phase will start using methods)
+
+PATTERNS:
+
+Observer pattern: ------------------------------ NOT ON EXAM !!!!!!!!!!!!!!!!!!!!!!!!!
+
+expret pattern:
+       object that has the information, should have responsibility to calculate the output
+
+creator pattern:
+	object that aggregates all items, should create instances of objects
+
+controller pattern:
+	who should handle system events?
+	-store / no
+	-cashier / no , we do software
+	-artificial // avoid if you can
+	-POST .> yes, best option (so make sure you put methods in POST)
+observer pattern:
+	 NOT ON EXAM !!!!
+
+
+
+------------------------------ CONTRACTS--------------------
+
+Name
+Responsibilites
+Exceptions
+Type
+
+**************************************** MESSAGES BECOMES METHODS in communication diagram ?----------
+
+
+	      
+       
