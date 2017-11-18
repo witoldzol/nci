@@ -1,0 +1,6 @@
+setters allows us to reuse the object as many times a s we want, 
+if we rely on the constructor, we would have to create a new object every time 
+we want to feed new data into it( for example, looping through range)
+
+!!!!
+thats why setters are important
