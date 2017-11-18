@@ -30,4 +30,25 @@ How to normalize:
    II) identify in the data that can identify classes uniqly (find out keys) and break up fields into separate tables (1NF)
    III) check if everything is dependentend on the primary key & related to it! (2NF)
    IV) compound key = collection of primary keys that create compound key.
-   
+
+
+----------------------------------------
+EXAM QUESTION
+--------------------------------------------------
+Describe core difference between SQL and NOSQL databases
+
+----------------------------------------
+EXAM QUESTION
+--------------------------------------------------
+Describe NOSQL and What ACID properties are
+	 -Atomicity
+	 -consistency
+	 -Isolation
+	 -Durability
+
+----------------------------------------
+EXAM QUESTION
+--------------------------------------------------
+
+Describe CAP THEOREM (Eric Brewer)
+	 
