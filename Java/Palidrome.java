@@ -49,7 +49,7 @@ public class Palidrome{
 
 	    return false;
 	}
-	System.out.println("ths is the end " + i);
+	System.out.println("ths is the end of function number " + i);
 	return true;
     }	
 
