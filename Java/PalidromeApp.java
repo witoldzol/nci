@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class PalidromeApp{
 
+    
     public static void main(String[] args){
 
 	//variables
@@ -14,7 +15,7 @@ public class PalidromeApp{
 	Palidrome obj = new Palidrome();
 
 	obj.setText(text);
-	obj.checkIfPalidrome();
+	obj.run();
 	
 	if(obj.getAnswer()){
 	    System.out.println("this word is a palidrome");
