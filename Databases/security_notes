@@ -1,0 +1,15 @@
+---------------------------------------  SECURITY ----------------
+
+WEEK 10? NOTES
+
+1) CIA Triad 
+
+2) Authentication: checks if you are who you claim you are
+
+3) Authorization: what are you authorized to do / seee in the system.
+
+Backup Plans:
+  -full // backup all of the data (long , runs usually over night)
+  -differential // save only what is different from the last full backup
+  - transaction // record of all the logs generates since last full backup
+  
