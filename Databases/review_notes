@@ -1,0 +1,91 @@
+++++++++++++++++++++++++++++++
+Pros of databases:
+-reduce redundancy (duplication)
+-data independence (data can be used for more purposes than originally envisionaged)
+-data integrity and consistancy (db's enforce rules / standardards)
+-ability to share data across multiple applicatons / users
+-database can be modified / data extended without impacting applications that use it
+-support better security
+
+Cons of databases:
+-can be very costly
+-require specialists to design and maintain
+-shared data can be abused
+-require controls to ensure data quality is maintained
+-require strict access control
+
+++++++++++++++++++++++++++++++
+DBMS- database management system
+facilitates:
+-sharing and integration of data between applications
+-allows multiple views of the same data
+-provides controlled access to multiple users
+-ensures that data is secure and conforms to standards
+-allows data sharing
+-improves security
+- many more
+
+cons:
+-complexity
+-size
+-cost
+-performance
+-if fails, it has drastically higher impact
+
+++++++++++++++++++++++++++++++
+
+Data = relations
+relation = table of values
+table = rows and columns
+row = one record // each row has a primary key // no duplicates allowed
+column = attribute
+
+++++++++++++++++++++++++++++++
+DBMS - Logical layer
+-db will store dictionary with the list of all database objects that exist in it
+-to build a dictionary, db needs description of all logical objects that it will store
+>that description is called the LOGICAL LEVEL (or logical schema)
+
+
+++++++++++++++++++++++++++++++
+Integrity rules:
+
+-entity integrity
+ :concerned with reality of database
+ :IN RELATION each value of PRIMARY KEY must be unique and it cannot be NULL
+     (in case of composite key, neither attribute can be NULL)
+ 
+-REFERENTIAL INTEGRITY
+ :(if we delete one record, that had foreign key =- that key will refere to non existent file now - what to do with it?)
+ :concerns the use of foreign keys
+ :concerned with preserving the relationships based on foreign keys
+ :REQUIRES: every foreign key references a primary key that actually exists
+ 	    (if it doesn't exist, foreign key should be set to NULL)
+ :STRATEGIES
+  1)RESTRICT: do not allow alteration to a primary key, if there are any foreign key references to it
+  2)CASCADE: we cascade effect of operation, on to the other rows that reference it
+  3)SET TO NULL: we allow operation, and set all corresponding fk's values to NULL
+  
+++++++++++++++++++++++++++++++
+VIEWS:
+ -Virtual relation produced on request
+ -contents are based on query on one or more relations in the database
+ -views are dynamic (immediately reflect changes to relations that they display)
+
+Purpose:
+ -powerful & flexible security system: can hide data we don't want to show to some users
+ -allow custom access to data, same data can be displayed in multiple ways,
+ 	depending on who the user is
+
+++++++++++++++++++++++++++++++
+STORED PROCEDURES:
+ -prepared SQL code that is saved in database and can be reused
+Pros:
+ -precompiled execution: stored procedures are much faster
+ -can reduce client/server trafic (long procedure is reduced to a single line)
+ -can be used by multiple users, can decrease development cycle (efficient time wise)
+ -security controls - users can be given rights to execute procedures that are
+ 	   independent of that users permissions
+++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
