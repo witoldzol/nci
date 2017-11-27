@@ -86,6 +86,110 @@ Pros:
  -can be used by multiple users, can decrease development cycle (efficient time wise)
  -security controls - users can be given rights to execute procedures that are
  	   independent of that users permissions
+
+Examples:
+--------------------
+1
+--------------------
+
+DROP PROCEDURE IF EXISTS <NAME>;		--- dont put () at the end !
+     	       	  	 			--- remember about ;
+DELIMITER //
+CREATE PROCEDURE <NAME>()			-- remember to put () and no ; !!
+BEGIN
+	DO SOMETHING;
+END						-- no ; !!
+//
+
+CALL <NAME>();
+
+--------------------
+2
+--------------------
+
+DROP PROCEDURE IF EXISTS <NAME>;
+
+DELIMITER //
+CREATE PROCEDURE <NAME>(IN <PARA_NAME> <PARA_TYPE>)
+BEGIN
+	DO STUFF FROM TABLE WHRE = PARA;
+END //
+
+CALL <NAME>('<PARA>');				-- remember to use quotes ''
+
+--------------------
+1
+--------------------
+
+
 ++++++++++++++++++++++++++++++
+JOINS
+
+Select Table.<Col_name> as <whatever_name>, OtherTable.<col_name>,
+from <FIRST_TABLE>
+JOIN <SECOND_TABLE>
+ON <FT>.<ATR> = <ST>.<ATR>			-- compare the same atr!
+JOIN <THIRD_TABLE>
+ON <st>.<atr> = <tt>.<atr>
+
 ++++++++++++++++++++++++++++++
+TRIGGERS
+
+
 ++++++++++++++++++++++++++++++
+
+
+
+
+********************************************************************************
+********************************************************************************
+********************************************************************************
+
+What is Structured Query Language (SQL)
+SQL is divided into two main categories; Data Manipulation Language (DML), and Data Definition Language (DDL). An explanation follows.
+
+Data Manipulation Language (DML)
+
+DML enables you to work with the data that goes into the database. DML is used to insert, select, update, and delete records in the database. Many of your SQL statements will begin with one of the following commands:
+
+SELECT - Retrieves data from the database
+INSERT - Inserts new data into the database
+UPDATE - Updates existing data in the database
+DELETE - Deletes existing data from the database
+Data Definition Language (DDL)
+
+You may also occasionally need to create or drop a table or other database object. SQL enables you to do this programatically using DDL.
+
+Examples of DDL commands:
+
+CREATE DATABASE - Creates a new database
+ALTER DATABASE - Modifies the database
+DROP DATABASE - Drops (deletes) a database
+CREATE TABLE - Creates a new table
+ALTER TABLE - Modifies the table
+DROP TABLE - Drops (deletes) a table 
+SQL Function
+
+SQL Aggregate Functions
+1. SELECT SUM(PROFIT) FROM ACCOUNTS
+2. SELECT SUM(PROFIT) AS MY_PROFIT FROM ACCOUNTS
+SQL aggregate functions return a single value, calculated from values in a column.
+Useful aggregate functions:
+AVG() - Returns the average value
+COUNT() - Returns the number of rows
+FIRST() - Returns the first value
+LAST() - Returns the last value
+MAX() - Returns the largest value
+MIN() - Returns the smallest value
+SUM() - Returns the sum
+SQL Scalar functions
+SQL scalar functions return a single value, based on the input value.
+Useful scalar functions:
+UCASE() - Converts a field to upper case
+LCASE() - Converts a field to lower case
+MID() - Extract characters from a text field
+LEN() - Returns the length of a text field
+ROUND() - Rounds a numeric field to the number of decimals specified
+NOW() - Returns the current system date and time
+FORMAT() - Formats how a field is to be displayed
+Add comments to your SQL statements
