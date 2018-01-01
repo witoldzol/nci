@@ -109,3 +109,59 @@ v) Describe with examples the 'ranking / prioritisation' of use cases.
 			       for POST: cash out, shut down (no effect on architecture)
 
 
+
+
+--------------------
+SECTION B
+--------------------
+
+i) identify actors
+   borrower
+   librarian
+   sys admin
+   notification system
+   user (abstract)
+   
+ii)
+   use cases:
+       -reserve the book / borrower + libr
+       -update system user records / sys admin
+       -update borrowers records / libr
+       -cancel reservation / borr + libr
+       -update inventory / librarian
+
+iii)
+  describe use case:
+  	   1) UC name: reserve book
+	   2) Actors: user
+	   3) preconditions:
+		-system must be online
+		-user must be logged in
+		-user must not be over limit
+
+	   4) posconditions
+		-user records are updated
+		-book inventory/status is updated
+
+	   5) normal flow
+	      1-user searches for the book
+	      2-user selects the book
+	      3-user clicks 'reserve' button
+
+	      alt flow
+	      1A-book is not found in the records
+	      	      1. system generates message that no such book is in system
+		      2. use case returns to step 1
+
+iv)
+   create conceptual class diagram. demonstrate:
+   	  -attributes
+	  -relationships
+	  -navigability
+	  -association class
+	  -multiplicity
+	  -composition
+
+
+   	  
+   
