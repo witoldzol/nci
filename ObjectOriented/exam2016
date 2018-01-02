@@ -1,0 +1,72 @@
+2016
+------------------------------------------------------------
+
+Section 1
+------------------------------
+
+i) Describe with the aid of an example the concept of inheritance
+
+   Inharitance relates to objects / classes. The idea is that parent class has common
+   attributes that can be found in all it's 'child' classes.
+   For example, class Animal will be a parent to class of cat and dog. Animal class will
+   have common behaviour / attributes that can be found in cat and dog classes. For example,
+   animal class will have size attribute, fur (boolean), sound method.
+   Both dog and cat attribut will have access to those methods and attributes.
+
+   Inheritance reduces duplication of methods, and allows reusability of code.
+
+ii) Using examples compare Concept Class diagrams with Design Class diagrams.
+
+    Concept class diagram focuses on concepts and real life application / associations.
+    Design class diagram is closer to the software side, and focuses on actual attributes/
+    methods in particular classes, and how they are associated with each other.
+
+iii) Explain the processes behind ranking and scheduling use classes:
+
+     First, UC are allocated to development cycles.
+     Ranking helps determine what to work on first.
+     classes can be ranked by variuos attributes. For example, they can be ranked by
+     priority: high, medium, low. This will determine scheduling of classes and when
+     they should be designed/implemented in the project. The most important classes are
+     usually created and tested firs, as the architecture of the system depends on them etc.
+
+     
+iv) Describe the Expert Pattern
+
+    Design patterns are universal solutions/patterns to problems we encounter in design
+    over and over again. Applies to all disciplines, not just software dev.
+
+    Expert pattern answers question: -what object / class should be responsible for
+    executing given task?
+    Answer: responsibility should be with object that has all the necessary information
+    / data to perform given task
+
+    Example: Sales object/ class, which contains info on all line items, should be in charge
+    of calculating the total amt to be paid.
+
+    Whereas lineItem class, should be in charge of calculating subtotals, as it has access
+    to specific items (and their price per unit)
+
+
+v)  In the context of project planning, why would one plan?
+
+    History is full of failed projects.
+    Objective of the project is to deliver a product, within given time and money
+    constraint.
+    If project fails to meet all objectives, it can be considered failure.
+
+
+    Without planning, it would be difficult to organize work, to divide it and prioritize
+    most important parts.
+    weak planning results in inefficiencies, wasted time and money.
+
+    Few rules: plan before coding. revise plan every time new things have to be included.
+    don't add new features unless absolutely necessary (feature creep).
+
+
+------------------------------------------------------------
+Section II
+------------------------------------------------------------
+
+
+    
