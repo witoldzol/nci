@@ -1,0 +1,79 @@
+2017
+============================================================
+
+Section 1
+==============================
+
+i) Discuss with the aid of an example, the Extend(s) relationship in a use case diagram
+
+   Class that extends other class, is independent of the latter.
+   Yet, it's behaviour can be included in the extended use case.
+   It can be seen as an optional behaviour.
+
+   For example: UC Registration is extended by 'Get help'. Ie, if user clicks a button
+   'help', additional information will be displayed to guide the user.
+
+   Extend means 'OPTIONAL' functionality
+   
+
+------------------------------
+include
+====================
+
+   'include' mean's that the UC that is included in another UC, always includes behavriour
+   from the  UC it includes
+
+   Similar to inheritance
+   
+   Example:
+
+   UC: 'checkOrderStatus' includes 'Login' UC.
+   'checkOrderStatus' always includes behaviour of the Login (you have to login to check
+   order status).
+   
+
+
+ii) Describe the process concepts of iterative and incremental development.
+
+    iterative: means, that development cycles are repeated :
+    Example: analyze problem, design solution, implement, review. Then start over,
+    what remains to be done? what problems/issues still remain? analyze them, design,
+    implement. Rinse and repeat until done.
+
+    Incremental goes together with incremental. Development of given module is done in
+    stages. For example, design basic architecture, and most basic functionalities.
+    Then add more. Bit by bit, each time we are able to reassess progress and adjust as
+    necessary.
+
+iii) Describe with the aid of an example the  use of system boundaries as used in
+     use case modelling.
+
+     Use case model system boundaries are used to show where system is in relation
+     to other, external, actors.
+     Use cases within the boundary describe what the system functionality will be.
+     Anything outside of the system boundary, doesn't belong to it.
+
+     Example: draw !
+
+iv)  Describe with the aid of an example the Creator pattern.
+
+     Design patterns seek to provide optimal solutions to problems that occurr at every
+     project/design.
+
+     Creator pattern seeks to answer the question: 'which class/object should be
+     responsible for creatign new instances of an object'.
+
+     Answer: there are several considerations:
+
+     For example, class that aggregates other classes, should instantiate them.
+     Example: Sales class is composed of line items class, and consolidates them. Thus
+     should be in charge of instantiating them.
+
+
+------------------------------
+Section 2
+------------------------------
+
+	
+
+

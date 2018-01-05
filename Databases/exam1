@@ -1,0 +1,352 @@
+------------------------------
+question 1
+------------------------------
+
+a)
+
+
+GROUP BY
+      its a statement often used with aggregate functions(count, max, sum)
+      groups all the rows by one of the columns
+      can be grouped ascending or downscending
+
+WHERE VS HAVING
+      both are clauses
+      WHERE works like a filter, it works before GROUP BY is applied
+      	    -it applies to one row at a time
+	    
+      HAVING applies after the grouping have been applied
+      	     -it can also filter based on aggregate function results
+	     	 SELECT sales
+		 FROM table.sales
+		 GROUP BY sales
+		 HAVING SUM(price*qty) > 1000
+
+
+
+b)
+
+DROP
+	when applied to table, drop will remove all data AND table structure
+	cannot be used with statements like WHERE
+	cannot be rolled back (auto committed statement)
+
+DELETE
+
+	when applied to table will delete only data
+	can be used with WHERE to target specific data
+	this operation can be rolled back (not auto commited stmt)
+
+
+c)
+
+
+i)
+
+CREATE TABLE orders (
+
+       order_id int(5) not null primary key auto_increment,
+       cust_id int(5) not null,
+       order_date datetime default null,
+       shipped_date datetime,
+       total_cost int(10),
+       total_amt int(10)
+       );
+
+
+CREATE TABLE ord_det (
+
+       item_id not null primary key auto_increment,
+       order_id int(5),
+       product_id int(5),
+       qty int(5),
+       sub_cost int(10)
+       );
+
+ii)
+
+assumption: using shorthand (omiting brackets)
+
+INSERT INTO orders
+VALUES (1,1,'2017010110:01:09AM','2017020209:10:01AM',100,2332);
+
+INSERT INTO ord_det
+VALUES (1,1,1,1,22);
+
+iii)
+
+UPDATE ord_det
+SET qty = 500
+WHERE item_id = 1;
+
+iv)
+
+DELETE FROM ord_det
+WHERE item_id = 1;
+
+v)
+
+SELECT * FROM products
+WHERE cost > 60
+ORDER BY description ASC
+
+vi)
+
+SELECT product_id,description,cost FROM products
+WHERE cost >= 50 && cost <= 200
+ORDER BY cost DESC;
+
+vii)
+
+SELECT * FROM orders
+WHERE cust_id = 5;
+
+viii)
+
+UPDATE products
+SET cost = cost * 1.1;
+
+SELECT * FROM products;
+
+ix)
+
+SELECT * FROM orders
+ORDER BY date desc
+LIMIT 1;
+
+
+
+----------------------------------------
+Section 2
+----------------------------------------
+
+i) Difference between join and subquery
+
+   subquery can produce single value or a row set, joins can return only rows
+   
+   joins combine min two tables together
+
+   subquery is nested in other query
+
+   usually, joins are faster than subqueries
+
+
+You can't use subquery if :
+
+    -ORDER BY clause has been used
+    -we want to list with subquery more than a single column
+    -cannot be used as an operand in an expressoin
+
+
+ii) what is 'redundancy' and give three reasons why you dont want it:
+
+    -where the same data exists in multiple files
+
+    	   -: same data can be called by different names
+
+	   -: same data can have different versions of itself
+
+	   -: it's waste of resources to create data that already exists!
+
+
+iii) why database is better than flat file system?
+
+     because data is stored in one database it is:
+     -easier to query the data
+     -easier to update
+     -easier to insert new data
+     -easier to delete
+
+     -no ambiguity, as only one source of data
+     -lower redundancy
+     -less wasted effort
+
+     -able to share same data across many apps
+     -more flexible with storing data
+     -allows more creative use of data (analytics)
+     -esier to enforce data integrity
+     -easier to enforce security
+
+
+iv) what is primary & foreign key
+
+    primary key:
+    unique column for each table
+    each row needs unique value
+
+
+    foreign key:
+    column or group of columns in table that create link between data in two tables (2+)
+    
+    references pk used in other tables
+
+    keys & references created by them allow relational databases to exist!
+
+
+
+
+entity integrity:
+       first rule:
+       	     there can only be one primary key for each value,
+	     AND it cannot be NULL
+	     
+
+referential integrity:
+	    (about foreign keys)
+	    rule: each foreign key must reference a primary key that actually exists
+	    	  otherwise it needs to be set to NULL
+
+
+v) what are: VIEWS and INDEXES, and why we use them
+
+   
+   View is a
+   	-virtual table, produced on request
+   	-dynamic (reflect changes in view parameters immediately)
+
+	-good for security reasons (given user can see only what he/she is allowed to see)
+	-allows customized access to data (same data seen differently by dif users)
+
+
+   Indexes are:
+   	   -special tables used by search engine to speed up data retrieval
+	   -pointer to data in a table
+
+	   -we use it to speed up queries
+	   -it slows down data input (!)
+
+----------
+b)
+----------
+
+database lifecycle:
+
+i) system definition		 
+
+scope and boundaries of the database:
+identification of:
+      -applications
+      -users
+
+ii) requirements collection and analysis
+
+    which part of organisation will use the database
+    what requirements will be of those users
+
+iii) database design
+
+     process of designing database that will allow company reach it's objectives
+
+     has 3 phases:
+     	 -conceptual / high level architecture plan - how we will store data  /
+	 -logical / detailed plan /
+	 -physical / how we will implement the plan ... plan eg. wires, power & water supply
+	 
+iv) implementation
+
+
+
+v) data conversion and loading
+
+   transfer of data into new database
+   conversion of applications to connect to new database
+
+
+referential integrity:
+
+	    -concerned with the use of foreign keys &
+	    -preservation of relationships based on those keys (between relations)
+
+	    rule: requires that each foreign key value must reference pk that actually
+	    	  exists, otherwise its value must be NULL
+
+
+	STRATEGIES:
+
+	-RESTRICT
+		: don't allow any changes to PK if there are any FK associated
+	-CASCADE
+		: if we change one row, we cascade effects to all other rows
+		  that reference it
+	-SET TO NULL
+	     	: we allow changes, but set all FK related to that row to NULL value
+
+
+
+----------------------------------------
+EXAM QUESTION
+--------------------------------------------------
+Describe core difference between SQL and NOSQL databases
+
+	 sql : esier to query and find connections between data
+	     : well structured
+	     : can fullfill ACID requirements (ACID transactions)
+	     : easier integration with other applications
+	     
+	 nosql: more flexible for storage, can handle many different types of data
+	      : scale better than sql databases (horizontally)
+	      : cannot guarantee ACID
+	      : generally much faster (read & write)
+	      : used in big data mining and IOT applications
+	      
+----------------------------------------
+EXAM QUESTION
+--------------------------------------------------
+Describe NOSQL and What ACID properties are
+
+	 nosql - not only sql
+	 non relational data base
+	 relaxes on at least one of the ACID principles
+	 	 
+	 
+
+	 ACID properties guarantee transactions in db are processed reliably:
+	 
+	 -Atomicity
+
+		:all or nothing - either transaction goes throu 100 % or is
+		     not performed at all
+		     
+	 -consistency
+
+		:transaction must transform db from one state to another
+		
+	 -Isolation
+
+		:transactions execute independent of each other.
+		 they should not affect each other
+		 
+	 -Durability
+
+		:effects of transaction are permanently stored and must not be lost
+		
+
+----------------------------------------
+EXAM QUESTION
+--------------------------------------------------
+
+Describe CAP THEOREM (Eric Brewer)
+
+	 Known as Brewer's theorem
+	 States that its impossible for a distributed database to fulfill more
+	 	than 2 out of 3 guarantees:
+
+		     -consistency
+		     -availability
+		     -partitioning
+
+		     For example: if partitioning is a thing, only consistency OR
+		     availability can take place simultaneously.
+
+
+		     CONSISTENCY:
+			if you write a value, and then read it back, it will be the same
+
+		     AVAILABILITY:
+			system may not always be able to read or write, in order to
+			preserve consistency
+
+		     PARTITIONING:
+			divide nodes into small groups that can see each other, but
+			can't  see every node in system
+	 
