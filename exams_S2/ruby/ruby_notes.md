@@ -106,3 +106,75 @@ UNIT TESTING
 Unit tests are code that tests and makes assertions about code.
 In unit testing, we take a little part of code, say a method of a model, and test its inputs and outputs.
 Unit tests are your friend. 
+
+------------------------------
+Object Oriented Programming
+------------------------------
+
+Object is an encapsulation of data (related state and behaviour)
+Object has:
+       -identity (unique reference number, ex. object id in ruby)
+       -state ( variables)
+       -behaviour (methods)
+
+Object is an instance of a class. Class is often called ADT (abstract data type)
+
+Class vs Object:
+
+concept / a phenomenon
+part of a program / part of data and a program execution
+description of common properties / representation of properties in a single instance
+
+Objects are created from classes.
+Class contains receipe on how to create an object.
+
+
+------------------------------
+Encapsulation
+	Internal representation of an object is hidden from the outside.
+	Only the object can interact with its own internal data.
+	Public methods allow external world to interact with class.
+	Encapsulation decreases system complexity (black box - i don't need to know,
+		how clas implements / does things, I just execute method and stuff happens).
+	Encaplusation increases system roboustness.
+	
+------------------------------
+Inheritance
+	Defines relationship between two classes. Class inherits features of it's parent.
+	Methods from parent can be overriden, new methods /logic can be added.
+	Promotes specialization.
+	Class can only inherit from only one Class (in ruby, unlike in C++)
+
+	Example
+		class Cat < Animal
+		      def makeSound
+		      end
+		end
+------------------------------
+Polymorphism
+	Ability to send the same message to different objects and get different results.
+	Can be achieved through inheritance, where two classes that inherit from same parent, implement same method differently
+	Duck typing example
+	     Class Parser
+	     	   def parse(parser)
+		       parser.parse
+		   end
+	     end
+
+	     Class Xml
+	     	   def parse
+		       puts 'im xml'
+		   end
+	     end
+   	     Class Json
+	     	   def parse
+		       puts 'im json'
+		   end
+	     end
+
+	     Application:
+	     
+	     parser = Parser.new
+	     parser.parse(Xml.new)
+		       
+------------------------------
