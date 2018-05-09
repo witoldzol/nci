@@ -57,6 +57,8 @@ Root: top node
 Internal node: node with at least one child
 External node ( LEAF ): node without child
 Depth of node: how many LINES (edges) from root to node !?
+Seize of tree: number of nodes
+Path: can only go downwards (so leaf has height of 0)
 Height of node: how many edges from node to LEAF (find longest path)
 Binary tree: has a root and two sub-trees (left and right)
 Root is the only element without a parent
@@ -70,8 +72,16 @@ Binary Search Tree ( values lower go left, higher to right)
 Complete tree: every level is full (except last one) - doesn't have to be balanced
 Balanced tree: each subtree has the same height +- one level
 
+---------- SLL vs DLL ----------
+Compare inserting process:
+
+	Single Linked List:
+	       -if inserting as a first element: change reference to head, allocate reference to previous head
+	       -
 
 
-
+	Double Linked List:
+	       -if first item: refrence as head, link previous head and link back from previous head to new head
+	       
 
 	
