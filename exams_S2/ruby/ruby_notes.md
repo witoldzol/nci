@@ -19,6 +19,7 @@ Notes
    	     	  hash.delete_if{|key, val| val==1}
 
 5. method .inspect outputs an object in human readable form ( it uses to_s method if not overriden)
+	gives us: Class name , object id, instance !!! (only) variables 
 
 6. iterate over hash :
 			hash.each do |x, y| puts "key: #{x} , value: #{y}" end
@@ -61,6 +62,12 @@ COMMANDS
 What is a Web Framework
 -------------------------------
 
+Type of framework designed to help developers to build web applications. They ususally provide functionalities
+common to web applications:
+	-session management
+	-data persistance
+	-templating systems
+
 Provides:
 	-framework for building web applications
 	-pre defined configuration
@@ -87,17 +94,31 @@ Purpose:
 MVC
 ----------------------------------------
 
-A way of separating logiaclly different responsabilities of the application.
+A way of separating logiacally different responsabilities of the application.
 	Responsabilities:
-		M: deal with data
-		V: display requested info
-		C: calculate / route / operate on models
-			Routing: mapping requested URL to code responsible for generating associated HTML
+		M: represents data stored in objects
+		V: represents visualization of the data that models contain
+		C: acts on both model and views. Controls how data flows and updates the view whenever data changes
+				Routing: mapping requested URL to code responsible for generating associated HTML
 				essentially:	( hook up URL to relevant function )
 
 
+------------------------------
+What to consider when choosing framework
+------------------------------
+-language
+-learning curve
+-updates (does it update regularly)
+-provided functionalities
+-community / available documentation
 
-
+------------------------------
+LAMP STACK
+------------------------------
+Linux
+Apache
+MySql
+PHP ( Perl / Python )
 
 ----------------------------------------
 UNIT TESTING
@@ -107,74 +128,102 @@ Unit tests are code that tests and makes assertions about code.
 In unit testing, we take a little part of code, say a method of a model, and test its inputs and outputs.
 Unit tests are your friend. 
 
+
+------------------
+What is a Web Framework
+-----------------
+ 
+-framework for developing web applications
+-provides abstraction of many low level functions ( setting up structure, dealing with specific routings etc)
+-increases productivity as long as user follows the internal rules governing the framework
+-Rails follows Convention over Configuration rule for example ( rails is opinionated )
+       : instead of configuring apps , user follows conventional rules ( for example file naming rules,
+       or where to keep certain files) in order not have to create config files ( because most things are
+       already pre configured )
+       this increases speed and productivity at the cost of flexibility
+-enforces good desing practices, like separation of duties in MVC model
+ 
 ------------------------------
-Object Oriented Programming
+Object Oriented Concept
 ------------------------------
+ 
+OOP is a prgramming paradigm based on concept of 'objects'.
+Objects are collections of data that have attributes ( fields ) / procedures ( methods)
+Feature of objects is that methods can access them and change their state / attributes
+In OOP applications / programs are made out of objects interacting with one another
+Objects  are instances of classes ( Class is a template, and object is a actual element based on that schema)
+ 
+ 
+ 
+----------
+Rails commands
+----------
+ 
+Create new project~
+       rails new <Name>
+ 
+Start server
+      rails s -i $IP -p $PORT
+ 
+Generate controller
+      rails generate controller Catalog_Items index show new edit
+ 
+Generate scaffold
+      rails generate scaffold Disc (SINGULAR) name:string band:string year:integer price:decimal producer:string
 
-Object is an encapsulation of data (related state and behaviour)
-Object has:
-       -identity (unique reference number, ex. object id in ruby)
-       -state ( variables)
-       -behaviour (methods)
+      : generates model / view / migration / tests / controller for given RESOURCE 
 
-Object is an instance of a class. Class is often called ADT (abstract data type)
-
-Class vs Object:
-
-concept / a phenomenon
-part of a program / part of data and a program execution
-description of common properties / representation of properties in a single instance
-
-Objects are created from classes.
-Class contains receipe on how to create an object.
-
-
-------------------------------
-Encapsulation
-	Internal representation of an object is hidden from the outside.
-	Only the object can interact with its own internal data.
-	Public methods allow external world to interact with class.
-	Encapsulation decreases system complexity (black box - i don't need to know,
-		how clas implements / does things, I just execute method and stuff happens).
-	Encaplusation increases system roboustness.
+Destroy scaffold
+	rails destroy scaffold ModelName (singular)
 	
-------------------------------
-Inheritance
-	Defines relationship between two classes. Class inherits features of it's parent.
-	Methods from parent can be overriden, new methods /logic can be added.
-	Promotes specialization.
-	Class can only inherit from only one Class (in ruby, unlike in C++)
+Install all dependencies specified in gemfile
+      bundle install
 
-	Example
-		class Cat < Animal
-		      def makeSound
-		      end
+Associations (MODELS)
+has_one
+	Example:
+		Class User < ActiveRecord::Base
+			has_one :profile
 		end
-------------------------------
-Polymorphism
-	Ability to send the same message to different objects and get different results.
-	Can be achieved through inheritance, where two classes that inherit from same parent, implement same method differently
-	Duck typing example
-	     Class Parser
-	     	   def parse(parser)
-		       parser.parse
-		   end
-	     end
 
-	     Class Xml
-	     	   def parse
-		       puts 'im xml'
-		   end
-	     end
-   	     Class Json
-	     	   def parse
-		       puts 'im json'
-		   end
-	     end
+		Class Profile < ActiveRecord::Base
+			belongs_to :user
+		end
 
-	     Application:
-	     
-	     parser = Parser.new
-	     parser.parse(Xml.new)
-		       
-------------------------------
+
+
+--------------------
+Ruby output
+--------------------
+ 
+> puts 1.class
+>Fixnum
+> =>nil
+ 
+> puts 1.12.class
+> Float
+> =>nil
+ 
+> puts "dkfjfdl".class
+> String
+> =>nil
+ 
+(every method returns something in Ruby // )
+ 
+// get array size
+array.length
+ 
+// check if array length equals given number
+a.length.eql? 100
+ 
+//check if array contains element
+a=[1,2,3,4]
+a.count(1)
+ 
+//count how many items are divisible by 2
+a.count{ |x| x % 2 == 0 }
+> =>2
+ 
+//is array empty
+a.empty?
+
