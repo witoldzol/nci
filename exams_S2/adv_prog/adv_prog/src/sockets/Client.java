@@ -27,8 +27,20 @@ public class Client {
         //in
         DataInputStream in = new DataInputStream(client.getInputStream());
         
-        String data = in.readLine();
-        System.out.println(data);
+        String str = "first string";
+        String s2 = "second string";
+        String s3 = "last string";
+        
+        String[] arr = {str,s2,s3};
+        try{
+            for (String string : arr) {
+                out.writeUTF(string);
+            }
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+            
         
     }
     

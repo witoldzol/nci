@@ -35,9 +35,19 @@ public class Server {
         //in
         DataInputStream in = new DataInputStream(clientSocket.getInputStream());
         
-        out.writeBytes("hello there strange ! I will be your guide");
+        //out.writeBytes("hello there strange ! I will be your guide");
         
+        try{
+            
         
+            while(true){
+                String data = in.readUTF();
+                System.out.println(data);
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
     }   
     
 }
