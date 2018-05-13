@@ -168,3 +168,61 @@ Concept of Serialization & DeSerialization:
 	
 	
 Main uses:
+	-persistance mechanism ( save to file )
+	-communication mechanism ( send objects via sockets )
+
+4 conditions for serialization:
+	-object needs to implement Serializable interface
+	-object's fields (including other objects) must be serializable
+	-superclass state is serializable
+
+
+------------------------------
+Sorting with recursion
+------------------------------
+
+Bubble sort - there is no efficiency gain using recursive version of Bubble Sort (which is inefficient as is)
+
+sudo code:
+
+class sort ( array, n ){
+	//base condition
+	if(n==1)
+	return;
+
+	//make a normal iterative pass of Bubble Sort
+	//to place largest item at the end
+	for ( i=0, i<n-1; i++ )
+		if(arr[i] > arr[i+1] )
+			swap(i,i+1)
+
+		
+
+	//recursively call function with n -1, th
+	sort(arr, n-1)
+}
+
+
+------------------------------
+SOCKETS
+------------------------------
+
+What is a socket:
+	-one of the two end points of a communication link
+	-it is bound to a port number
+	-socket class represent connection between client and server program
+	-throw checked exceptions
+
+Socket has:
+	-IP address
+	-port number
+
+Types of sockets:
+	-Datagram sockets (connectionless sockets - use UDP instead of TCP )
+	-Stream sockets ( connection-oriented sockets, use TCP )
+	-Raw sockets ( available in routers , transport layer is bypassed )
+	
+Advantages & disadvantages of sockets:
+
+Sample Server application that prints out input from client:
+
