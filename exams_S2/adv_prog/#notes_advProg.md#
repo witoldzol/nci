@@ -168,3 +168,13 @@ Concept of Serialization & DeSerialization:
 	
 	
 Main uses:
+	-persistance mechanism ( save to file )
+	-communication mechanism ( send objects via sockets )
+
+4 conditions for serialization:
+	-object needs to implement Serializable interface
+	-object's fields (including other objects) must be serializable
+	-superclass state is serializable
+	
+	
+	
